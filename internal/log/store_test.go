@@ -20,7 +20,6 @@ func TestStoreAppendRead(t *testing.T) {
 	s, err := newStore(f)
 	require.NoError(t, err)
 
-	// レコードを追加
 	testAppend(t, s)
 	testRead(t, s)
 	testReadAt(t, s)
@@ -30,8 +29,10 @@ func TestStoreAppendRead(t *testing.T) {
 	testRead(t, s)
 }
 
+// レコード追加のテスト
 func testAppend(t *testing.T, s *store) {
 	t.Helper()
+	// レコードを3度追加
 	for i := uint64(1); i < 4; i++ {
 		n, pos, err := s.Append(write)
 		require.NoError(t, err)
