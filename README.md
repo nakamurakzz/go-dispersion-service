@@ -28,3 +28,22 @@
 protoc --version
 libprotoc 22.2
 ```
+
+プロトコルバッファの定義
+```proto
+syntax = "proto3";
+
+package log.v1;
+
+option go_package = "github.com/nakamurakzz/api/log_v1";
+
+// 型 名前 フィールドID
+message Record {
+  bytes value = 1;
+  uint64 offset = 2;
+}
+```
+
+- コンパイルは各言語のランタイムに依存する
+- コンパイルされると各言語のコードが生成される
+
